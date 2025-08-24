@@ -19,8 +19,6 @@ export class Form
   loadText = ''
   pageNum: number = 1;
 
-  show = false;
-
   js = inject(JsMovie);
   movies: Movie[] = [];
 
@@ -37,6 +35,7 @@ export class Form
     }
     else this.loadText = ''
 
+    const oldText = inpText;
     this.url = 'https://www.omdbapi.com/?apikey=a2b07930&s=' + this.inpText + '&page=' + this.pageNum.toString();
     this.js.getMovies(this.url).subscribe(data => {
       if (data.Search) 
@@ -47,6 +46,7 @@ export class Form
         } 
         else 
         {
+          if (oldText != inpText) this.movies = [];
           this.movies = [...this.movies, ...data.Search];
         }
       } 
