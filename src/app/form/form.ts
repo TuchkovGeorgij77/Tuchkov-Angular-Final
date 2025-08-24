@@ -26,7 +26,11 @@ export class Form
 
   search()
   {
-    if (this.inpText == '') this.movies = [];
+    if (this.inpText == '') 
+    {
+      this.movies = [];
+      this.pageNum = 1;
+    }
     if (this.inpText != '' && this.movies == null)
     {
       this.loadText = 'Загрузка...';
