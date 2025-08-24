@@ -34,11 +34,9 @@ export class Form
     if (this.inpText != '' && this.movies == null)
     {
       this.loadText = 'Загрузка...';
-      this.pageNum = 1;
     }
     else this.loadText = ''
 
-    const oldList = this.movies;
     this.url = 'https://www.omdbapi.com/?apikey=a2b07930&s=' + this.inpText + '&page=' + this.pageNum.toString();
     this.js.getMovies(this.url).subscribe(data => {
       if (data.Search) 
@@ -54,10 +52,8 @@ export class Form
       } 
       else 
       {
-        if (this.pageNum === 1) 
-        {
-          this.movies = [];
-        }
+        this.pageNum = 1;
+        this.movies = [];
       }
       this.loadText = '';
     });
