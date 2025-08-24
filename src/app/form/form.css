@@ -1,0 +1,30 @@
+* {
+    font-size: 125%;
+}
+
+input {
+    width: 100%;
+}
+
+ol {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 1em;
+
+    li {
+        border: 5px solid aqua;
+        margin: 10px;
+    }
+}
+
+span {
+    display: block;
+}
+
+.showAbout {
+    display: flex;
+    float: right;
+    width: 100px;
+    height: 100%;
+}

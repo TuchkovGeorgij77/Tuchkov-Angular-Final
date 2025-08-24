@@ -1,0 +1,19 @@
+<input [(ngModel)]="inpText" (ngModelChange)="search()">
+<p>{{loadText}}</p>
+@if (movies.length > 0)
+{
+  <ol>
+    @for (movie of movies; track movie)
+    {
+      <li>
+        <span>{{movie.Title}}</span>
+        <span>Год: {{movie.Year}}</span>
+        <span>{{movie.Type}}</span>
+        <img [src]='movie.Poster'>
+      </li>
+    }
+  </ol>
+
+  <button (click)="incPageNum()">Загрузить еще</button>
+  <p>{{loadText}}</p>
+}
